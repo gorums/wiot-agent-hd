@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'wiot/hdmonitor/version'
+require 'wiot/agent/hd/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "wiot-hdmonitor"
-  spec.version       = Wiot::Hdmonitor::VERSION
+  spec.name          = "wiot-agent-hd"
+  spec.version       = Wiot::Agent::Hd::VERSION
   spec.authors       = ["gorums"]
   spec.email         = ["acksecurity@hotmail.com"]
 

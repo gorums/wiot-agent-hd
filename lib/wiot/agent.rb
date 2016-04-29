@@ -1,5 +1,5 @@
-require 'wiot/hdmonitor/version'
-require 'wiot/hdmonitor/metric'
+require 'wiot/agent/hd/version'
+require 'wiot/agent/hd/metric'
 
 require 'sys/filesystem'
 require 'socket'
@@ -9,15 +9,15 @@ require 'rest-client'
 include Sys
 
 module Wiot
-  module Hdmonitor
+  module Agent
     def self.monitor
-      p 'Host name: ' + host_name
+      p 'Host name: ' + server_name
       Filesystem.mounts.each { |mount|
         next unless valid_mount_type mount
 
         stat = Filesystem.stat(mount.mount_point)
 
-        metric = Metric.new
+        metric = Hd::Metric.new
         metric.add 'os', RbConfig::CONFIG['host_os']
         metric.add 'server_name', server_name
         metric.add 'partition', mount.name
@@ -36,8 +36,8 @@ module Wiot
 
     def self.send(metric)
       uri = 'http://api.watchiot.org/' + project
-      payload = '{ api: ' + api + ', data: { ' + JSON.parse( metric.metric) + '}'
-      response = RestClient.post uri, payload, content_type: json, accept: json
+      payload = '{ api: ' + api + ', data: { ' + JSON.generate(metric.metric).to_s + '}'
+      response = RestClient.post uri, payload, content_type: 'json', accept: 'json'
 
       p response.code
       p response.body

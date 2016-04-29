@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wiot-hdmonitor (0.1.0)
+    wiot-agent-hd (0.1.0)
 
 GEM
   remote: https://rubygems.org/
