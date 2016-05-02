@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wiot-agent-hd (0.1.0)
+    wiot_agent_hd (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -47,7 +47,7 @@ DEPENDENCIES
   rest-client (~> 1.8)
   rspec (~> 3.0)
   sys-filesystem (~> 1.1, >= 1.1.5)
-  wiot-hdmonitor!
+  wiot_agent_hd!
 
 BUNDLED WITH
    1.11.2
