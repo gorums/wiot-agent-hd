@@ -4,4 +4,3 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'sys-filesystem', '~> 1.1', '>= 1.1.5'
-gem 'rest-client', '~> 1.8'

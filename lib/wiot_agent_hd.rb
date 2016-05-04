@@ -1,5 +1,4 @@
 require 'wiot_agent_hd/version'
-require 'wiot_agent_hd/metric'
 
 require 'sys/filesystem'
 require 'socket'
@@ -32,15 +31,6 @@ module WiotAgentHd
   end
 
   private
-
-  def self.send(metric)
-    uri = 'http://api.watchiot.org/' + project
-    payload = '{ api: ' + api + ', data: { ' + JSON.generate(metric.metric).to_s + '}'
-    response = RestClient.post uri, payload, content_type: 'json', accept: 'json'
-
-    p response.code
-    p response.body
-  end
 
   def self.valid_mount_type(mount)
     mount.mount_type == 'ext4'
