@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wiot_agent_hd (0.1.0)
+    wiot-agent-hd (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -24,6 +24,7 @@ GEM
     rspec-support (3.4.1)
     sys-filesystem (1.1.5)
       ffi
+    wiot-sdk (0.1.2)
 
 PLATFORMS
   ruby
@@ -33,7 +34,8 @@ DEPENDENCIES
   rake (~> 10.0)
   rspec (~> 3.0)
   sys-filesystem (~> 1.1, >= 1.1.5)
-  wiot_agent_hd!
+  wiot-agent-hd!
+  wiot-sdk
 
 BUNDLED WITH
-   1.12.1
+   1.13.7

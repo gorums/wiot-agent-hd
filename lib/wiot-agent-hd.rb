@@ -1,9 +1,7 @@
-require 'wiot_agent_hd/version'
+require 'wiot-agent-hd/version'
 
 require 'sys/filesystem'
-require 'socket'
-require 'json'
-require 'rest-client'
+require 'wiot-sdk'
 
 include Sys
 
@@ -15,6 +13,7 @@ module WiotAgentHd
 
       stat = Filesystem.stat(mount.mount_point)
 
+      WiotSdk.init_json
       metric = Metric.new
       metric.add 'os', RbConfig::CONFIG['host_os']
       metric.add 'server_name', server_name

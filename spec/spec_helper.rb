@@ -1,2 +1,2 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'wiot_agent_hd'
+require 'wiot-agent-hd'
