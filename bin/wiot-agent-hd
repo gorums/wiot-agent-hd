@@ -3,4 +3,6 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 require 'wiot-agent-hd'
 
-puts "Using our Spydec executable…"
+# Process command line options and run WiotAgentHd
+opts = WiotAgentHd::CLI.parse_options
+WiotAgentHd::CLI.start(opts)
