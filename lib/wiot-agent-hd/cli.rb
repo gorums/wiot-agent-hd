@@ -1,13 +1,13 @@
 module WiotAgentHd
-  class CLI
+  module CLI
 
     NoOptionsError = Class.new(StandardError)
 
-    def parse_options(args=ARGV)
+    def self.parse_options(args=ARGV)
       puts "Parse options WiotAgentHd ..."
     end
 
-    def start(opts)
+    def self.start(opts)
       puts "Start WiotAgentHd ..."
     end
 

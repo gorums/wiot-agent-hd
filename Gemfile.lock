@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wiot-agent-hd (0.1.1)
+    wiot-agent-hd (0.1.2)
 
 GEM
   remote: https://rubygems.org/
