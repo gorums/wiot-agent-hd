@@ -1,4 +1,5 @@
 require 'wiot-agent-hd/version'
+require 'wiot-agent-hd/cli'
 
 require 'sys/filesystem'
 require 'wiot-sdk'
