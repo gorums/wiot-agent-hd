@@ -1,4 +1,5 @@
 
-require 'wiot-agent-hd/version'
-require 'wiot-agent-hd/cli'
+require_relative 'wiot-agent-hd/version'
+require_relative 'wiot-agent-hd/cli'
+
 

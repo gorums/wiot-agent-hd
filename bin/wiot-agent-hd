@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 
-require 'wiot-agent-hd'
+require '../lib/wiot-agent-hd'
 
 # Process command line options and run WiotAgentHd
 opts = WiotAgentHd::CLI.parse_options

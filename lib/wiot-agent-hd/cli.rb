@@ -1,26 +1,30 @@
 require 'optparse'
-require 'version'
+
+require_relative '../../lib/wiot-agent-hd/agent'
 
 module WiotAgentHd
   module CLI
 
     def self.parse_options(args=ARGV)
-      options = {api_key: nil, space: nil, project: nil}
+      options = {apikey: nil, space: nil, project: nil}
 
       parser = OptionParser.new do|opts|
         opts.banner = "Usage: wiot-agent-hd [options]"
 
+        opts.separator ''
+        opts.separator 'Specific options:'
+
         # Mandatory argument.
 
-        opts.on('-a', '--api-key api_key', 'The API Key') do |api_key|
-          options[:api_key] = api_key;
+        opts.on('--api-key APIKEY', 'the api key') do |apikey|
+          options[:apikey] = apikey;
         end
 
-        opts.on('-s', '--space space', 'The Space') do |space|
+        opts.on('--space SPACE', 'the space name') do |space|
           options[:space] = space;
         end
 
-        opts.on('-p', '--project project', 'The Project') do |project|
+        opts.on('--project PROJECT', 'the project name') do |project|
           options[:project] = project;
         end
 
@@ -41,7 +45,8 @@ module WiotAgentHd
     end
 
     def self.start(opts)
-      puts opts
+      agent = WiotAgentHd::Agent.new opts[:apikey], opts[:space], opts[:project]
+      agent.start
     end
 
   end
