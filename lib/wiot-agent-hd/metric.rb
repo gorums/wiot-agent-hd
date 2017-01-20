@@ -1,3 +1,4 @@
+require 'wiot-sdk'
 require 'sys/filesystem'
 include Sys
 
@@ -7,10 +8,14 @@ module WiotAgentHd
     def self.collect
       puts '[*] collection metrics'
 
-      metric = {hd: 'd:', free_space: '10%'}
-      metric
+      payload = WiotSdk::Payload.new
+      payload.addMetric(:hd, 'd:')
+      payload.addMetric(:free_space, 10)
+
+      payload
     end
 
+=begin
     def metric
       p 'Host name: ' + server_name
       Filesystem.mounts.each { |mount|
@@ -43,5 +48,6 @@ module WiotAgentHd
       ip = Socket.ip_address_list.find { |ai| ai.ipv4? && !ai.ipv4_loopback? }.ip_address
       Socket.gethostname + '-' + ip
     end
-  end
+    end
+=end
 end

@@ -16,6 +16,10 @@ module WiotAgentHd
 
         # Mandatory argument.
 
+        opts.on('--username USERNAME', 'the username') do |username|
+          options[:username] = username;
+        end
+
         opts.on('--api-key APIKEY', 'the api key') do |apikey|
           options[:apikey] = apikey;
         end
@@ -45,7 +49,13 @@ module WiotAgentHd
     end
 
     def self.start(opts)
-      agent = WiotAgentHd::Agent.new opts[:apikey], opts[:space], opts[:project]
+      agent = WiotAgentHd::Agent.new(
+            opts[:username],
+            opts[:apikey],
+            opts[:space],
+            opts[:project]
+      )
+
       agent.start
     end
 
